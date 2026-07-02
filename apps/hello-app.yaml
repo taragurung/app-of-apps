@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     # 👇 CHANGE THIS to YOUR git repo URL (same repo)
-    repoURL: https://github.com/YOUR_USERNAME/app-of-app-test.git
+    repoURL: https://github.com/taragurung/app-of-apps
     targetRevision: HEAD
     path: manifests/hello
   destination:
