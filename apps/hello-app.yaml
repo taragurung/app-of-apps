@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello
+  namespace: argocd
+spec:
+  project: default
+  source:
+    # 👇 CHANGE THIS to YOUR git repo URL (same repo)
+    repoURL: https://github.com/YOUR_USERNAME/app-of-app-test.git
+    targetRevision: HEAD
+    path: manifests/hello
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true   # auto-create the "demo" namespace
